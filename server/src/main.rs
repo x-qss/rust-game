@@ -54,7 +54,7 @@ async fn handle_connection(stream: tokio::net::TcpStream) {
                     Ok(Packets::Chat { user, content }) => {}
 
                     Ok(Packets::Ping) => {
-                        let msg = ClientPackets::Ping;
+                        let msg = Plahiui;
 
                         println!("ping");
 
