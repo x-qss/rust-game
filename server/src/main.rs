@@ -1,11 +1,16 @@
 use futures_util::{SinkExt, StreamExt};
 use serde_json::{Result, Value};
+use structs::player::Player;
 use styledlog::*;
 use tokio::net::TcpListener;
 use tokio_tungstenite::accept_async;
 
 mod messages;
 use crate::messages::{ClientPackets, Packets};
+
+pub mod structs {
+    pub mod player;
+}
 
 #[tokio::main]
 async fn main() {
@@ -54,7 +59,17 @@ async fn handle_connection(stream: tokio::net::TcpStream) {
                     Ok(Packets::Chat { user, content }) => {}
 
                     Ok(Packets::Ping) => {
-                        let msg = Plahiui;
+                        let msg = Player {
+                            name: String::from("testing"),
+                            uuid: 0,
+                            x: 0,
+                            y: 0,
+                            vx: 0,
+                            vy: 0,
+                            lx: 0,
+                            ly: 0,
+                            scale: 35
+                        };
 
                         println!("ping");
 

@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #ctx {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
 <body>
-  <canvas id="ctx"></canvas>
+  <canvas id="ctx" width="1920" height="1080"></canvas>
     <script type="module">
       import init from "./pkg/client.js";
       init();
     </script>
 </body>
+
+<script src="script.js">
+
+</script>
 </html>
