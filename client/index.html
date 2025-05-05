@@ -25,7 +25,27 @@
     </script>
 </body>
 
-<script src="script.js">
+<script src="script.js"></script>
+<script>
+  window.addEventListener("wheel", (e) => {
+    //e.preventDefault();
 
+    if(e.deltaY < 0) {
+        window.innerHeight *= 0.99;
+        window.innerWidth *= 0.99;
+
+    } else {
+        window.innerHeight *= 1.01;
+        window.innerWidth *= 1.01;
+    }
+
+    //console.log(e.deltaY);
+    //window.innerHeight *= e.deltaY;
+
+    canvas.width = window.innerWidth * window.devicePixelRatio;
+    canvas.height = window.innerHeight * window.devicePixelRatio;
+    //canvas.style.width = `${window.innerWidth}px`;
+    //canvas.style.height = `${window.innerHeight}px`;
+})
 </script>
 </html>

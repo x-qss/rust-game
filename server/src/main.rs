@@ -1,4 +1,11 @@
+use std::net::TcpStream;
+
+use async_tungstenite::{
+    WebSocketStream,
+    tungstenite::{WebSocket, protocol::WebSocketContext},
+};
 use futures_util::{SinkExt, StreamExt};
+use libm::{cos, sin};
 use serde_json::{Result, Value};
 use structs::player::Player;
 use styledlog::*;
@@ -11,6 +18,14 @@ use crate::messages::{ClientPackets, Packets};
 pub mod structs {
     pub mod player;
 }
+
+struct Ws {
+    read_stream: WebSocketStream<TcpStream>,
+    write_stream: WebSocketStream<TcpStream>,
+    player: Player,
+}
+
+impl Ws {}
 
 #[tokio::main]
 async fn main() {
@@ -68,7 +83,7 @@ async fn handle_connection(stream: tokio::net::TcpStream) {
                             vy: 0,
                             lx: 0,
                             ly: 0,
-                            scale: 35
+                            scale: 35,
                         };
 
                         println!("ping");
@@ -83,7 +98,9 @@ async fn handle_connection(stream: tokio::net::TcpStream) {
                         }
                     }
 
-                    Ok(Packets::Move { direction }) => {}
+                    Ok(Packets::Move { direction }) => {
+                        //let sine_movement = math
+                    }
 
                     Ok(Packets::Spawn { username }) => {}
 

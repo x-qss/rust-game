@@ -7,6 +7,7 @@ edition = "2024"
 async-tungstenite = "0.29.1"
 env_logger = "0.11.8"
 futures-util = "0.3.31"
+libm = "0.2.14"
 serde = { version = "1.0.219", features = ["derive"]}
 serde_json = "1.0.140"
 styledlog = "0.2.1"

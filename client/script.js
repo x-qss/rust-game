@@ -22,3 +22,20 @@ window.addEventListener("DOMContentLoaded", (e) => {
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`;
 });
+
+window.addEventListener("wheel", (e) => {
+    //e.preventDefault();
+
+    if(e.deltaY < 0) {
+        window.innerHeight *= 0.01;
+        window.innerWidth *= 0.01;
+
+    } else {
+        window.innerHeight *= 1.01;
+        window.innerWidth *= 1.01;
+
+    }
+
+    console.log(e.deltaY);
+    //window.innerHeight *= e.deltaY;
+})
